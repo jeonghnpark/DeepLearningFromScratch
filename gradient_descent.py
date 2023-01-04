@@ -44,6 +44,10 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams['font.family'] = 'Malgun Gothic'
+matplotlib.rcParams['axes.unicode_minus'] = False
 
 
 def function_2(x):
@@ -77,13 +81,30 @@ def gradient_descent(f, init_x, lr, step_num):
         xs.append(x)
         print(f"step {i} : {x}")
 
-    aa, bb = zip(*xs)
-    plt.scatter(aa, bb)
+    # aa, bb = zip(*xs)
+    # plt.scatter(aa, bb)
+    #
+    # plt.xlim([-3, 3])
+    # plt.ylim([-3, 3])
+    #
+    # for r in np.linspace(0, 5, 10):
+    #     radius = r
+    #     theta = np.linspace(0, 2 * np.pi, 100)
+    #     circle = radius * np.exp(1j * theta)
+    #     x = circle.real
+    #     y = circle.imag
+    #     plt.plot(x, y, '--')
+    # plt.axis('equal')
+    # plt.show()
+    return xs
 
-    # for i in xs:
-    #     plt.scatter(*i)
-    plt.xlim([-3, 3])
-    plt.ylim([-3, 3])
+
+def plot_2d_np_array_list(x_list, title):
+    '''x_list : list of numpy array which are (x,y) pairs'''
+    x, y = zip(*x_list)
+
+    plt.scatter(x, y)
+    plt.plot(x, y)  # link each scatter point to visualize the order of points
 
     for r in np.linspace(0, 5, 10):
         radius = r
@@ -92,10 +113,16 @@ def gradient_descent(f, init_x, lr, step_num):
         x = circle.real
         y = circle.imag
         plt.plot(x, y, '--')
+    plt.xlim([-5, 5])
+    plt.ylim([-5, 5])
+    plt.title(title)
     plt.axis('equal')
     plt.show()
-    return x
 
 
 init_x = np.array([-3.0, 4.0])
-x_final = gradient_descent(function_2, init_x, 0.1, 100)
+x_final = gradient_descent(function_2, init_x, 0.1, 100)  # 성공한케이스
+plot_2d_np_array_list(x_final, "proper learning rate")
+
+x_final = gradient_descent(function_2, init_x, 1, 100)  # learning rate가 너무 큰 케이스
+plot_2d_np_array_list(x_final, "too large learning rate")
