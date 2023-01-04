@@ -2,6 +2,46 @@
 계산그래프를 이용한 방식
 '''
 
+'''unpacking list of numpy array which are [x,y] pairs to plot'''
+# import numpy as np
+# list_x = []
+# x = np.array(np.array([4, 5]))
+# y = np.array(np.array([1, 2]))
+# list_x.append(x)
+# list_x.append(y)
+# x, y = zip(*list_x)
+# import matplotlib.pyplot as plt
+# plt.plot(x, y, 'o')
+# plt.show()
+
+'''draw circle with numpy complex number'''
+# import matplotlib.pyplot as plt
+# import numpy as np
+#
+# radius = 1.0
+# theta = np.linspace(0, 2 * np.pi, 100)
+# circle = radius * np.exp(1j * theta)
+# x = circle.real
+# y = circle.imag
+# plt.plot(x, y, '--')
+# plt.axis('equal')
+
+# import numpy as np
+# import matplotlib.pyplot as plt
+#
+# a = list()
+# a.append(np.array([1, 1]))
+# a.append(np.array([2, 2]))
+# for i in a:
+#     plt.scatter(*i)
+
+
+'''maker numpy array using user-defined lambda function '''
+# import numpy as np
+# squarer = lambda t: t ** 2
+# x = np.array([1, 2, 3, 4, 5])
+# squarer(x)
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -26,22 +66,6 @@ def numerical_gradient(f, x):
     return grad
 
 
-'''unpacking list of numpy array which are [x,y] pairs to plot'''
-
-
-# import numpy as np
-# list_x = []
-# x = np.array(np.array([4, 5]))
-# y = np.array(np.array([1, 2]))
-# list_x.append(x)
-# list_x.append(y)
-# x, y = zip(*list_x)
-# import matplotlib.pyplot as plt
-# plt.plot(x, y, 'o')
-# plt.show()
-
-
-#
 def gradient_descent(f, init_x, lr, step_num):
     x = init_x
     xs = []
@@ -73,35 +97,5 @@ def gradient_descent(f, init_x, lr, step_num):
     return x
 
 
-'''draw circle with numpy complex number'''
-# import matplotlib.pyplot as plt
-# import numpy as np
-#
-# radius = 1.0
-# theta = np.linspace(0, 2 * np.pi, 100)
-# circle = radius * np.exp(1j * theta)
-# x = circle.real
-# y = circle.imag
-# plt.plot(x, y, '--')
-# plt.axis('equal')
-
-# import numpy as np
-# import matplotlib.pyplot as plt
-#
-# a = list()
-# a.append(np.array([1, 1]))
-# a.append(np.array([2, 2]))
-# for i in a:
-#     plt.scatter(*i)
-
-#
-
 init_x = np.array([-3.0, 4.0])
-
 x_final = gradient_descent(function_2, init_x, 0.1, 100)
-
-'''maker numpy array using user-defined lambda function '''
-# import numpy as np
-# squarer = lambda t: t ** 2
-# x = np.array([1, 2, 3, 4, 5])
-# squarer(x)
