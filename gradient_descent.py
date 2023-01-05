@@ -125,4 +125,4 @@ x_final = gradient_descent(function_2, init_x, 0.1, 100)  # 성공한케이스
 plot_2d_np_array_list(x_final, "proper learning rate")
 
 x_final = gradient_descent(function_2, init_x, 1, 100)  # learning rate가 너무 큰 케이스
-plot_2d_np_array_list(x_final, "too large learning rate")
+plot_2d_np_array_list(x_final, "fail: too large learning rate")
