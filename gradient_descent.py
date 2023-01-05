@@ -99,6 +99,9 @@ def gradient_descent(f, init_x, lr, step_num):
     return xs
 
 
+print(3)
+
+
 def plot_2d_np_array_list(x_list, title):
     '''x_list : list of numpy array which are (x,y) pairs'''
     x, y = zip(*x_list)
